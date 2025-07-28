@@ -1,0 +1,55 @@
+#+STARTUP: content
+* algo method
+
+<2025-07-28 月 21:22>
+
+- [[https://algo-method.com/tasks/936dmhe][1個除外した総和の最大値]]
+
+aの中で最も値の小さいときの合計を出力する。
+
+#+begin_src rust :tangle am936.rs
+    use std::*;
+
+    #[warn(dead_code)]
+    fn getline() -> String {
+        let mut buffer = String::new();
+        io::stdin().read_line(&mut buffer).unwrap();
+        buffer.to_string()
+    }
+
+    fn main() {
+        let n = getline().trim().parse::<i64>().unwrap();
+        let a = getline()
+            .trim()
+            .split_whitespace()
+            .map(|x| x.parse::<i64>().unwrap())
+            .collect::<Vec<i64>>();
+
+        // let n = 6;
+        // let a = [3, 1, 4];
+        // let a = [1000000000, 1000000000, 1000000000, 1000000000, 1000000000, 1000000000];
+          
+        let mut min = a[0];
+        let mut min_index = 0;
+
+        for i in 0..n {
+            if a[i as usize] < min {
+                min = a[i as usize];
+                min_index = i;
+            }
+        }
+
+        let mut sum: i64 = 0;
+
+        for i in 0..n {
+            if i == min_index {
+                continue;
+            }
+            sum += a[i as usize];
+        }
+
+        println!("{}", sum);
+    }
+#+end_src
+
+#+RESULTS:
