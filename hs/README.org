@@ -1,0 +1,7 @@
+
+* Haskell project
+
+** Run
+#+begin_src shell
+runghc src/<something>.hs
+#+end_src
