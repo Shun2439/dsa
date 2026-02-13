@@ -1,4 +1,4 @@
-import Control.Monad (replicateM)
+import Data.List (sort)
 
 main :: IO ()
 main = do
@@ -6,7 +6,7 @@ main = do
     let n = read line1 :: Int
 
     line2 <- getLine
-    let a = map read (words line2) :: [Int]
+    let l = sort (map read (words line2) :: [Int])
 
     let ans =
             length
@@ -14,10 +14,9 @@ main = do
                 | i <- [0 .. n - 1]
                 , j <- [i + 1 .. n - 1]
                 , k <- [j + 1 .. n - 1]
-                , let ai = a !! i
-                , let aj = a !! j
-                , let ak = a !! k
-                , aj >= ai && aj >= ak
+                , let li = l !! i
+                , let lj = l !! j
+                , let lk = l !! k
+                , li + lj > lk
                 ]
-
     print ans
