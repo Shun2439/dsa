@@ -1,0 +1,171 @@
+#+STARTUP: show2levels indent
+
+#+TITLE: Comp
+#+DATE: <2025-10-25 土>
+
+* Comp [0/2]
+[[https://www2.econ.osaka-u.ac.jp/~tanizaki/class/combinat/combinat.pdf][組み合わせを求めるプログラムについて]]
+
+[[https://projecteuler.net/][Project Euler]]
+** Demo
+*** C
+#+begin_src C :includes <stdint.h> <stdio.h> :results output
+  int32_t i = 0;
+  // std::cout << i << '\n';
+  printf("i: %d\n", i);
+#+end_src
+
+#+RESULTS:
+: i: 0
+
+*** Rust
+#+begin_src rust
+  println!("Hello!");
+#+end_src
+
+*** Ruby
+#+begin_src ruby :results output
+  p "Hello!"
+#+end_src
+
+#+RESULTS:
+: "Hello!"
+
+#+begin_src ruby :results output
+  #!/usr/bin/ruby
+
+  a = 10
+  for i in 0..a
+    p i
+  end
+#+end_src
+
+#+RESULTS:
+#+begin_example
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+#+end_example
+
+** 429 [2/7]
+# <2025-10-25 Sat>
+*** DONE A
+CLOSED: [2025-10-25 Sat 22:02]
+#+begin_src ruby :tangle a.rb
+  n, m = gets.split.map(&:to_i)
+
+  for i in 0..n-1
+    if i < m
+      print "OK\n"
+     else
+       print "Too Many Requests\n"
+    end
+  end
+#+end_src
+
+#+RESULTS:
+
+#+begin_src python
+  print("Hello!")
+#+end_src
+
+#+RESULTS:
+
+*** DONE B
+CLOSED: [2025-10-25 Sat 22:02]
+#+begin_src ruby :tangle b.rb
+  n, m = gets.split.map(&:to_i)
+  a = gets.split.map(&:to_i)
+
+  a.sum
+
+  for i in a
+    if m == a.sum - i
+      print "Yes\n"
+      exit
+      end
+    end
+
+  print "No\n"
+#+end_src
+
+*** TODO C
+#+begin_src ruby :tangle out.rb
+  #!/usr/bin/ruby
+
+  n = gets.to_i
+  a = gets.split.map(&:to_i)
+
+  count = 0
+
+  for i in 0..n
+    for j in (i+1)..n
+      if a[i] == a[j]
+        for k in (j+1)..n
+          if a[j] != a[k]
+            count += 1
+          end
+        end
+      else
+        for k in (j+1)..n
+          if a[i] == a[k] || a[j] == a[k]
+            count += 1
+          end
+        end
+      end
+    end
+  end
+
+  print i
+#+end_src
+*** TODO D
+*** TODO E
+*** TODO F
+*** TODO G
+** TODO WSH?
+SCHEDULED: <2026-03-20 金>--<2026-03-21 土>
+- Note taken on [2026-01-01 木 07:32] \\
+  [[https://cyberagent.connpass.com/event/371488/][Web Speed Hackathon 2026【一般応募用】]]
+- Note taken on [2025-12-31 水 17:09] \\
+  [[https://zenn.dev/shun_shobon/articles/173450f5bec890][Web Speed Hackathon 2025で優勝した話]]
+
+** TODO ISUCON?
+* ACL
+** Search templates
+#+begin_src shell
+nix flake show templates
+#+end_src
+** Create project
+#+begin_src shell
+nix flake init -t templates#trivial
+#+end_src
+
+*** Using direnv
+
+1. Create .envrc and edit
+
+#+begin_src shell
+direnv edit .
+#+end_src
+
+#+begin_src text
+use flake
+#+end_src
+
+2. Activate
+
+#+begin_src shell
+direnv allow
+#+end_src
+** Not found error
+#+begin_src shell
+nix search nixpkgs atcoder
+#+end_src
