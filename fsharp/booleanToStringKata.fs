@@ -1,3 +1,5 @@
 module booleanToStringKata
 
-let booleanToString
+let booleanToString = function
+    | true -> "true"
+    | false -> "false"
