@@ -5,7 +5,7 @@
     <TargetFramework>net9.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup><Compile Include="ParseFloat.fs" />
+  <ItemGroup><Compile Include="booleanToStringKata.fs" /><Compile Include="HexToDecimal.fs" /><Compile Include="ParseFloat.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
