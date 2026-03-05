@@ -1,3 +1,5 @@
+module Tasks5f860b64c3783507I where
+
 import Data.List (sort, tails)
 
 main :: IO ()

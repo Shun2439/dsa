@@ -1,3 +1,5 @@
+module Tasks259 where
+
 import Control.Monad (replicateM)
 
 main :: IO ()

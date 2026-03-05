@@ -1,3 +1,5 @@
+module Tasks245 where
+
 main :: IO ()
 main = do
     [l, r] <- map read . words <$> getLine :: IO [Int]

@@ -1,3 +1,5 @@
+module Tasks2 where
+
 import Data.List (tails)
 
 main :: IO ()
