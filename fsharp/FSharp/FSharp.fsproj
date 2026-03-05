@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup><Compile Include="Bmi.fs" /><Compile Include="Fuchu.fs" /><Compile Include="BooleanToStringKata.fs" /><Compile Include="HexToDecimal.fs" /><Compile Include="ParseFloat.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+</Project>
