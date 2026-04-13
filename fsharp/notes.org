@@ -1,0 +1,45 @@
+** Mumbling
+#+begin_src fsharp
+module Mumbling
+
+open System
+
+let accum (s: string) : string =
+    s.ToCharArray()
+    |> Array.mapi (fun i c ->
+        String.Concat(Array.init 1 (fun _ -> Char.ToUpper c))
+        + String.Concat(Array.init i (fun _ -> Char.ToLower c)))
+    |> String.concat "-"
+#+end_src
+
+#+begin_verse
+abcd
+0123
+#+end_verse
+
+#+begin_src fsharp
+fun index content ->
+#+end_src
+
+1. ~[a, b, c, d]~
+2. ~[A]~
+3. ~[Bb]~
+4. ~[Ccc]~
+5. ~[Dddd]~
+6. ~[A, Bb, Ccc, Dddd]~
+7. ~A-Bb-Ccc-Dddd~
+
+* log
+:LOGBOOK:
+- Note taken on [2026-04-13 月 16:11] \\
+  #+begin_src fsharp
+  open System
+
+  let unluckyDays year = 
+      // Implement me! :)
+      [1..12]
+      |> List.map (fun month -> DateTime(year, month, 13))
+      |> List.filter (fun date -> date.DayOfWeek = DayOfWeek.Friday)
+      |> List.length
+  #+end_src
+:END:
